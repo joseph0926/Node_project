@@ -6,6 +6,10 @@ const app = express();
 
 app.set("view engine", "ejs");
 
+const errorController = require("./controller/404");
+
+app.use(errorController.getError);
+
 sequelize
   .sync()
   .then((result) => {
